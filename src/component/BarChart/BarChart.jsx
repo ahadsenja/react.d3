@@ -13,17 +13,18 @@ class BarChart extends React.Component {
     drawChart = () => {
         // create the data to visualize
         const data = [12, 5, 6, 6, 9, 10]
-        // create svg element
-        const svg = d3.select('body')
-            .append('svg')
-            .attr('width', 700)
-            .attr('height', 300)
-            .style('margin-left', 100)
+
+        // defining svg with d3 method
+        const svg = d3.select('body') // select body element
+            .append('svg') // add svg element into selected html element
+            .attr('width', 700) // add width attribute
+            .attr('height', 300) // add height attribute
+            .style('margin-left', 100) // styling svg element
 
         svg.selectAll('rect')
-        .data(data)
+        .data(data) // add data to visualize
         .enter()
-        .append('rect')
+        .append('rect')  // adding rectangle shape
         .attr('x', (d, i) => i * 70)
         .attr('y', (d, i) => 200 - 10 * d)
         .attr('width', 65)
